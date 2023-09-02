@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:weightSum="100"
+    >
+
+    <!--  -->
+    <!--o tools é usado para realizar teste em meio ao desenvolvimento -->
+
+    <!--android:adjustViewBounds="true" faz com que a imagem fique em seu tamanho maximo -->
+    <!-- android:scaleType="fitCenter" centraliza a imagem  -->
+
+
+
+    <ImageView
+        android:layout_weight="30"
+        android:id="@+id/imgFoto"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_person_24"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true">
+
+    </ImageView>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_weight="70"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textAlignment="center"
+            android:id="@+id/txtNome"
+            tools:text="Fulano"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+        <TextView
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:id="@+id/txtTelefone"
+            tools:text="(11)99999-9999"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </TextView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

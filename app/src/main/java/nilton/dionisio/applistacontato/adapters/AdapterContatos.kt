@@ -5,6 +5,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.inflate
@@ -33,7 +34,12 @@ class AdapterContatos(var contexto:Context, var listaContatos: List<Contato>) : 
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        var contato:Contato = listaContatos.elementAt(position);
+
+        val txtNome:TextView = holder.itemView.findViewById(R.id.txtNome)
+        val txtTelefone:TextView = holder.itemView.findViewById(R.id.txtTelefone)
+        txtNome.text = contato.nome
+        txtTelefone.text = contato.telefone
     }
 
     override fun getItemCount(): Int {

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".EditarContatoActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_person_24"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"></ImageView>
+
+    <EditText
+        android:id="@+id/txtNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="texto antes de escrever"></EditText>
+
+    <EditText
+        android:id="@+id/txtEmail"
+        android:inputType="textEmailAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="texto antes de escrever"></EditText>
+
+    <EditText
+        android:id="@+id/txtTelefone"
+        android:inputType="phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="texto antes de escrever"></EditText>
+
+    <EditText
+        android:id="@+id/txtEndereco"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="texto antes de escrever"></EditText>
+
+    <Button
+        android:id="@+id/btSalvar"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="salvar">
+
+    </Button>
+        </LinearLayout>
+    </ScrollView>
+</androidx.appcompat.widget.LinearLayoutCompat>

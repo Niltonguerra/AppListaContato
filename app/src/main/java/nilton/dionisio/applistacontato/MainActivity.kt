@@ -1,40 +1,43 @@
 package nilton.dionisio.applistacontato
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.service.controls.actions.FloatAction
 import android.text.Layout
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import nilton.dionisio.applistacontato.adapters.AdapterContatos
+import nilton.dionisio.applistacontato.dao.DaoContatos
 import nilton.dionisio.applistacontato.models.Contato
 
 
 class MainActivity : AppCompatActivity() {
 
+
     lateinit  var recyclerContatos:RecyclerView;
 
-    lateinit var  listaContatos: ArrayList<Contato>
+    lateinit var  daoContatos: DaoContatos;
 
+    lateinit var btnCadastrar: FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         recyclerContatos = findViewById(R.id.recyclerContatos)
-        listaContatos = ArrayList<Contato>(0)
+        daoContatos = DaoContatos()
 
-        var contato1:Contato = Contato ("Fulano","fulano@gmail.com","11 3231-3383","Rua do fulano","")
-        var contato2:Contato = Contato ("belgrano","belgrano@gmail.com","11 3231-3383","Rua do fulano","")
-        var contato3:Contato = Contato ("ciclano","ciclano@gmail.com","11 3231-3383","Rua do fulano","")
+        btnCadastrar = findViewById(R.id.fabCadastrar)
 
-        listaContatos.add(contato1)
-        listaContatos.add(contato2)
-        listaContatos.add(contato3)
 
-        recyclerContatos.adapter = AdapterContatos(this,listaContatos)
+
+
+        recyclerContatos.adapter = AdapterContatos(this,daoContatos.listaContatos)
         recyclerContatos.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
-
+        btnCadastrar.setOnClickListener{abrirCadatro()}
 
 
 
@@ -54,9 +57,10 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
-
-
+    private fun abrirCadatro() {
+        var intent:Intent = Intent(this,EditarContatoActivity::class.java)
+        startActivity(intent)
+    }
 
 
 }

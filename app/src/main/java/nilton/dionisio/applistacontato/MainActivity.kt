@@ -39,28 +39,21 @@ class MainActivity : AppCompatActivity() {
         recyclerContatos.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
         btnCadastrar.setOnClickListener{abrirCadatro()}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
     private fun abrirCadatro() {
         var intent:Intent = Intent(this,EditarContatoActivity::class.java)
         startActivity(intent)
+        startActivityForResult(intent,1)
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
 
+        if(requestCode==1 && resultCode==1){
+            val contato:Contato = data?.getSerializableExtra("contato") as Contato
+            daoContatos.CadastraContato(contato = contato)
+            recyclerContatos.adapter = AdapterContatos(this,daoContatos.getLista())
+        }
+    }
 }
